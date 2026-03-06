@@ -1,0 +1,32 @@
+name: Auto Streak Updater
+
+on:
+  schedule:
+    # رح يشتغل كل يوم الساعة 10 الصبح بتوقيت جرينتش (حوالي 1 الظهر بتوقيت الأردن)
+    - cron: '0 10 * * *' 
+  workflow_dispatch:
+
+jobs:
+  keep_streak:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Make Random Commits
+        run: |
+          # حط إيميلك واسمك الحقيقيين تبعون جيت هاب بدل هدول عشان تنحسبلك الكونتريبيوشن
+          git config --local user.email "esawi@ieee.org"
+          git config --local user.name "Mahmoud Al-Esawi"
+          
+          # رح يختار رقم عشوائي بين 1 و 5 عشان يغير درجة اللون الأخضر
+          COMMITS_TODAY=$((1 + RANDOM % 5))
+          
+          for (( c=1; c<=$COMMITS_TODAY; c++ ))
+          do
+            echo "Streak update $c on $(date)" >> streak.log
+            git add streak.log
+            git commit -m "Keep the streak alive: $c"
+          done
+          
+          git push
