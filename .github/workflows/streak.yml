@@ -3,15 +3,22 @@ name: Auto Streak Updater
 on:
   schedule:
     # رح يشتغل كل يوم الساعة 10 الصبح بتوقيت جرينتش (حوالي 1 الظهر بتوقيت الأردن)
-    - cron: '0 10 * * *' 
+    - cron: '0 10 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   keep_streak:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Make Random Commits
         run: |
@@ -29,4 +36,6 @@ jobs:
             git commit -m "Keep the streak alive: $c"
           done
           
-          git push
+          git pull --rebase origin main || true
+          git push origin main
+
