@@ -26,14 +26,39 @@ jobs:
           git config --local user.email "esawi@ieee.org"
           git config --local user.name "Mahmoud Al-Esawi"
           
-          # رح يختار رقم عشوائي بين 1 و 5 عشان يغير درجة اللون الأخضر
-          COMMITS_TODAY=$((1 + RANDOM % 5))
+          # رح يختار رقم عشوائي بين 2 و 6commits يومياً
+          COMMITS_TODAY=$((2 + RANDOM % 5))
+          
+          MESSAGES=(
+            "fix(ui): responsive layout adjustments for navbar"
+            "refactor(core): optimize state management logic"
+            "docs: update setup instructions in README.md"
+            "feat(api): add error handling middleware"
+            "style: format code according to prettier guidelines"
+            "test: write unit test coverage for helper functions"
+            "chore: update package dependencies"
+            "fix(auth): handle expired token error gracefully"
+            "perf: improve rendering performance for large lists"
+            "build: update build configuration"
+            "ci: update workflow triggers"
+            "refactor: cleanup unused variables and imports"
+            "feat(components): add modal confirmation dialog"
+            "fix(utils): resolve timezone parsing issue"
+            "docs: clarify API endpoint parameter descriptions"
+            "chore(deps): bump library versions"
+            "style: clean up css utility classes"
+            "feat(db): optimize query indexes"
+            "test(api): add integration test suite"
+            "fix(forms): validate input fields before submit"
+          )
           
           for (( c=1; c<=$COMMITS_TODAY; c++ ))
           do
-            echo "Streak update $c on $(date)" >> streak.log
+            RAND_INDEX=$((RANDOM % ${#MESSAGES[@]}))
+            MSG="${MESSAGES[$RAND_INDEX]}"
+            echo "[$(date)] Streak update $c" >> streak.log
             git add streak.log
-            git commit -m "Keep the streak alive: $c"
+            git commit -m "$MSG"
           done
           
           git pull --rebase origin main || true
