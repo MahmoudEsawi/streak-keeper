@@ -1,33 +1,57 @@
-name: Auto Streak Updater
+name: ⚡ Auto Streak Updater
 
 on:
   schedule:
-    # رح يشتغل كل يوم الساعة 10 الصبح بتوقيت جرينتش (حوالي 1 الظهر بتوقيت الأردن)
+    # Runs daily at 10:00 UTC (approx. 1:00 PM Jordan Time / UTC+3)
     - cron: '0 10 * * *'
   workflow_dispatch:
+    inputs:
+      commit_count:
+        description: 'Manual commit override count (leave 0 for random 2-6)'
+        required: false
+        default: '0'
 
 permissions:
   contents: write
 
+concurrency:
+  group: streak-updater
+  cancel-in-progress: false
+
 jobs:
   keep_streak:
+    name: 🚀 Keep Contribution Streak
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout Repo
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Make Random Commits
+      - name: 🎲 Generate Daily Activity Commits
+        env:
+          INPUT_COUNT: ${{ github.event.inputs.commit_count }}
+          GIT_NAME: ${{ vars.GIT_USER_NAME || secrets.GIT_USER_NAME || 'Mahmoud Al-Esawi' }}
+          GIT_EMAIL: ${{ vars.GIT_USER_EMAIL || secrets.GIT_USER_EMAIL || 'esawi@ieee.org' }}
         run: |
-          # حط إيميلك واسمك الحقيقيين تبعون جيت هاب بدل هدول عشان تنحسبلك الكونتريبيوشن
-          git config --local user.email "esawi@ieee.org"
-          git config --local user.name "Mahmoud Al-Esawi"
+          # Configure Git credentials
+          git config --local user.email "$GIT_EMAIL"
+          git config --local user.name "$GIT_NAME"
           
-          # رح يختار رقم عشوائي بين 2 و 6commits يومياً
-          COMMITS_TODAY=$((2 + RANDOM % 5))
+          # Determine number of commits (random between 2 and 6, or manual override)
+          if [ -n "$INPUT_COUNT" ] && [ "$INPUT_COUNT" -gt 0 ]; then
+            COMMITS_TODAY=$INPUT_COUNT
+          else
+            COMMITS_TODAY=$((2 + RANDOM % 5))
+          fi
+          
+          echo "### 📈 Streak Keeper Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Author:** \`$GIT_NAME <$GIT_EMAIL>\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Scheduled Commits:** \`$COMMITS_TODAY\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp:** \`$(date -u)\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| # | Commit Message | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|----------------|--------|" >> $GITHUB_STEP_SUMMARY
           
           MESSAGES=(
             "fix(ui): responsive layout adjustments for navbar"
@@ -50,17 +74,24 @@ jobs:
             "feat(db): optimize query indexes"
             "test(api): add integration test suite"
             "fix(forms): validate input fields before submit"
+            "perf(db): optimize relational queries and joins"
+            "feat(auth): add rate limiting for sensitive routes"
+            "refactor(hooks): decouple reactive event listeners"
+            "docs: update architecture diagrams and workflow docs"
+            "style: enforce uniform spacing in stylesheets"
           )
           
           for (( c=1; c<=$COMMITS_TODAY; c++ ))
           do
             RAND_INDEX=$((RANDOM % ${#MESSAGES[@]}))
             MSG="${MESSAGES[$RAND_INDEX]}"
-            echo "[$(date)] Streak update $c" >> streak.log
+            TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            echo "[$TIMESTAMP] Streak update #$c: $MSG" >> streak.log
             git add streak.log
             git commit -m "$MSG"
+            echo "| $c | \`$MSG\` | ✅ Committed |" >> $GITHUB_STEP_SUMMARY
           done
           
+          echo "Syncing and pushing to origin..."
           git pull --rebase origin main || true
           git push origin main
-

@@ -1,0 +1,27 @@
+- name: "🤖 automation"
+  color: "0E8A16"
+  description: "Automated streak updates, cron jobs, and bot maintenance"
+
+- name: "🚀 ci/cd"
+  color: "1D76DB"
+  description: "GitHub Actions workflow configurations and pipeline triggers"
+
+- name: "📖 documentation"
+  color: "0075CA"
+  description: "Improvements, additions, or updates to documentation and README"
+
+- name: "🔥 streak-keeper"
+  color: "2EA44F"
+  description: "Contribution graph activity and streak generation logic"
+
+- name: "✨ enhancement"
+  color: "A2EEEF"
+  description: "New features, options, or enhancements"
+
+- name: "🧹 maintenance"
+  color: "FBCA04"
+  description: "Routine repository cleanups, log rotations, and dependency updates"
+
+- name: "🐛 bug"
+  color: "D73A4A"
+  description: "Something isn't working as expected in workflow or scripts"
