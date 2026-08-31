@@ -1,6 +1,6 @@
-# 🤝 Contributing to My Green Graph
+# 🤝 Contributing to Streak Keeper
 
-Thank you for your interest in contributing to **My Green Graph**! We welcome bug fixes, documentation improvements, new commit message pools, and automation features from the community.
+Thank you for your interest in contributing to **Streak Keeper**! We welcome bug fixes, documentation improvements, new commit message pools, and automation features from the community.
 
 ---
 
@@ -13,7 +13,7 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 ## 🛠️ How to Contribute
 
 ### 1. Reporting Bugs
-- Search existing [Issues](https://github.com/MahmoudEsawi/my-green-graph/issues) to ensure the bug hasn't already been reported.
+- Search existing [Issues](https://github.com/MahmoudEsawi/streak-keeper/issues) to ensure the bug hasn't already been reported.
 - If not, create a new issue using our **🐛 Bug Report** template, providing clear reproduction steps and error logs.
 
 ### 2. Suggesting Enhancements
@@ -50,4 +50,4 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 - Fill out the provided [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md).
 - Automated CI quality checks will run on your PR; ensure all checks pass.
 
-Thank you for helping make open source awesome! 💚
+Thank you for helping make open source awesome! 🔥

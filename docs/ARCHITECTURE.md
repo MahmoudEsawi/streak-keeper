@@ -1,12 +1,12 @@
 # 🏗️ System Architecture & Design
 
-This document details the architectural design, execution flow, directory structure, and failure recovery mechanisms for **`my-green-graph`**.
+This document details the architectural design, execution flow, directory structure, and failure recovery mechanisms for **`streak-keeper`**.
 
 ---
 
 ## 🧭 Architectural Overview
 
-`my-green-graph` operates as an event-driven, autonomous Git activity pipeline built on top of GitHub Actions and modular POSIX-compliant shell scripts.
+`streak-keeper` operates as an event-driven, autonomous Git activity pipeline built on top of GitHub Actions and modular POSIX-compliant shell scripts.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -44,7 +44,7 @@ This document details the architectural design, execution flow, directory struct
 ## 📂 Directory Layout
 
 ```text
-my-green-graph/
+streak-keeper/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/          # Structured issue intake forms
 │   │   ├── bug_report.yml

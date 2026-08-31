@@ -13,7 +13,7 @@ body:
     attributes:
       label: GitHub Actions Run URL (if applicable)
       description: Provide the URL of the failing GitHub Actions run.
-      placeholder: https://github.com/MahmoudEsawi/my-green-graph/actions/runs/...
+      placeholder: https://github.com/MahmoudEsawi/streak-keeper/actions/runs/...
 
   - type: textarea
     id: description

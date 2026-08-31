@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# 🌿 My Green Graph - Activity & Streak Commit Generator
+# 🔥 Streak Keeper - Activity & Streak Commit Generator Engine
 # ==============================================================================
 # Description: Generates realistic conventional commits and updates activity logs.
 # Usage:
@@ -116,7 +116,7 @@ if [[ -z "$COMMIT_COUNT" || "$COMMIT_COUNT" -le 0 ]]; then
 fi
 
 echo "===================================================="
-echo "🌿 My Green Graph - Streak Engine"
+echo "🔥 Streak Keeper - Contribution Engine"
 echo "===================================================="
 echo "• Author: $AUTHOR_NAME <$AUTHOR_EMAIL>"
 echo "• Total Commits Planned: $COMMIT_COUNT"

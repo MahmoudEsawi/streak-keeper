@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🌿 My Green Graph
+# 🔥 Streak Keeper
 
 ### **Automated GitHub Activity & Contribution Streak Engine**
 
-[![⚡ Auto Streak Updater](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/streak.yml/badge.svg)](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/streak.yml)
-[![🧪 CI & Quality Checks](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/ci.yml)
+[![⚡ Auto Streak Updater](https://github.com/MahmoudEsawi/streak-keeper/actions/workflows/streak.yml/badge.svg)](https://github.com/MahmoudEsawi/streak-keeper/actions/workflows/streak.yml)
+[![🧪 CI & Quality Checks](https://github.com/MahmoudEsawi/streak-keeper/actions/workflows/ci.yml/badge.svg)](https://github.com/MahmoudEsawi/streak-keeper/actions/workflows/ci.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub Streak](https://img.shields.io/badge/Streak-Active%20%F0%9F%94%A5-brightgreen)](https://github.com/MahmoudEsawi)
@@ -16,22 +16,21 @@
   <b>A lightweight, zero-maintenance, open-source GitHub Actions engine engineered to keep your GitHub contribution heatmap consistently active with authentic conventional commits.</b>
 </p>
 
-[Overview](#-what-is-this-repository) •
+[Overview](#-what-is-streak-keeper) •
 [Architecture](#%EF%B8%8F-clean-architecture--folder-structure) •
 [Features](#-features) •
 [How It Works](#-how-it-works) •
 [Quick Setup](#-quick-setup-guide) •
 [Documentation](#-documentation) •
-[Open Source Readiness](#-open-source-checklist) •
 [License](#-license)
 
 ---
 
 </div>
 
-## 📖 What is this Repository?
+## 📖 What is Streak Keeper?
 
-**`my-green-graph`** is an automated **GitHub Activity & Streak Keeper Engine**. 
+**`streak-keeper`** is an automated **GitHub Activity & Contribution Streak Engine**. 
 
 GitHub visually tracks your daily developer activity through the **"Green Contribution Graph"**. Days without pushed commits leave blank gaps in your activity history and reset your streak counters. 
 
@@ -51,7 +50,7 @@ This repository solves that by using **GitHub Actions (Cron-scheduled CI/CD pipe
 The repository is structured following clean architectural principles, separating CI/CD orchestration, configuration, executable scripts, documentation, and logs:
 
 ```text
-my-green-graph/
+streak-keeper/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/          # GitHub issue intake forms
 │   │   ├── bug_report.yml       # Bug report template
@@ -124,8 +123,8 @@ Get your automated streak keeper running in 4 easy steps:
 ### 1. Fork or Clone this Repository
 Fork this repository to your GitHub account or clone it directly:
 ```bash
-git clone https://github.com/MahmoudEsawi/my-green-graph.git
-cd my-green-graph
+git clone https://github.com/MahmoudEsawi/streak-keeper.git
+cd streak-keeper
 ```
 
 ### 2. Enable GitHub Actions Workflow Permissions

@@ -1,6 +1,6 @@
 # 🛠️ Setup & Development Guide
 
-This guide covers everything needed to configure, run, and test **`my-green-graph`** locally or in your GitHub repository.
+This guide covers everything needed to configure, run, and test **`streak-keeper`** locally or in your GitHub repository.
 
 ---
 
@@ -13,8 +13,8 @@ This guide covers everything needed to configure, run, and test **`my-green-grap
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/MahmoudEsawi/my-green-graph.git
-cd my-green-graph
+git clone https://github.com/MahmoudEsawi/streak-keeper.git
+cd streak-keeper
 ```
 
 ### 3. Run a Dry Run
