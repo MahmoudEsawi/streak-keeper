@@ -1,0 +1,22 @@
+# Logs
+logs/*.log
+!logs/streak.log
+!logs/activity.log
+!logs/.gitkeep
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor & IDE Directories
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+scratch/

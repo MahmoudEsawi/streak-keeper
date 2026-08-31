@@ -1,0 +1,33 @@
+name: 🧪 CI & Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: 🔍 Validate Scripts & Configs
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Lint Shell Scripts (ShellCheck)
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: './scripts'
+        continue-on-error: true
+
+      - name: 📋 Validate JSON Configuration
+        run: |
+          jq empty config/messages.json
+          echo "✅ config/messages.json is valid JSON!"
+
+      - name: 🧪 Test Generator Script (Dry Run)
+        run: |
+          chmod +x scripts/generate_commits.sh
+          bash scripts/generate_commits.sh --dry-run --count 3
+          echo "✅ Dry run execution passed successfully!"

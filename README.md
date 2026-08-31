@@ -2,25 +2,27 @@
 
 # 🌿 My Green Graph
 
-### **Automated GitHub Activity & Contribution Streak Keeper**
+### **Automated GitHub Activity & Contribution Streak Engine**
 
 [![⚡ Auto Streak Updater](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/streak.yml/badge.svg)](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/streak.yml)
+[![🧪 CI & Quality Checks](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/MahmoudEsawi/my-green-graph/actions/workflows/ci.yml)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub Streak](https://img.shields.io/badge/Streak-Active%20%F0%9F%94%A5-brightgreen)](https://github.com/MahmoudEsawi)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-Yes-blue.svg)](https://github.com/MahmoudEsawi/my-green-graph)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Platform](https://img.shields.io/badge/Platform-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
 <p align="center">
-  <b>A lightweight, zero-maintenance GitHub Actions automation engine designed to keep your GitHub contribution heatmap consistently active with realistic, conventional commits.</b>
+  <b>A lightweight, zero-maintenance, open-source GitHub Actions engine engineered to keep your GitHub contribution heatmap consistently active with authentic conventional commits.</b>
 </p>
 
 [Overview](#-what-is-this-repository) •
+[Architecture](#%EF%B8%8F-clean-architecture--folder-structure) •
 [Features](#-features) •
 [How It Works](#-how-it-works) •
 [Quick Setup](#-quick-setup-guide) •
-[Configuration](#%EF%B8%8F-configuration--customization) •
-[Repo Metadata](#-repository-metadata--topics) •
+[Documentation](#-documentation) •
+[Open Source Readiness](#-open-source-checklist) •
 [License](#-license)
 
 ---
@@ -29,27 +31,70 @@
 
 ## 📖 What is this Repository?
 
-**`my-green-graph`** is an automated **GitHub Activity & Streak Keeper**. 
+**`my-green-graph`** is an automated **GitHub Activity & Streak Keeper Engine**. 
 
-GitHub tracks your daily developer activity through the famous **"Green Contribution Graph"**. Days without pushed commits leave blank gaps in your activity history. This repository solves that by using **GitHub Actions (Cron Scheduled CI/CD workflows)** to automatically make regular, realistic commits every day into this repository—ensuring your streak stays alive and your contribution graph reflects ongoing daily activity.
+GitHub visually tracks your daily developer activity through the **"Green Contribution Graph"**. Days without pushed commits leave blank gaps in your activity history and reset your streak counters. 
 
-### 💡 Why Use It?
+This repository solves that by using **GitHub Actions (Cron-scheduled CI/CD pipelines)** to automatically generate regular, realistic conventional commits into this repository every day—ensuring your streak stays unbroken and your profile displays consistent daily momentum.
+
+### 💡 Core Value
 - 保持 **Unbroken GitHub Streaks**: Keep your activity streak counter growing continuously without manual daily intervention.
-- 🕒 **100% Serverless & Free**: Powered entirely by GitHub Actions runners (0 external servers or paid hosting needed).
+- 🕒 **100% Serverless & Free**: Runs purely on GitHub Actions runners (0 external servers, VPS, or hosting costs).
 - 🎯 **Realistic Git History**: Dispatches conventional commits (`feat`, `fix`, `docs`, `refactor`, `perf`, `ci`, `chore`) with realistic commit volume variance (2–6 commits/day).
-- 🛡️ **Zero Impact on Production Projects**: Commits are strictly isolated to this dedicated repository (`streak.log`), keeping your real production repositories clean.
+- 🛡️ **Zero Contamination**: Commits are strictly isolated to this repository's audit log ([`logs/streak.log`](logs/streak.log)), keeping your real production repositories clean.
+- 🏗️ **Clean Architecture**: Modular shell scripts, structured JSON configurations, CI checks, and open-source compliance files.
+
+---
+
+## 🏗️ Clean Architecture & Folder Structure
+
+The repository is structured following clean architectural principles, separating CI/CD orchestration, configuration, executable scripts, documentation, and logs:
+
+```text
+my-green-graph/
+├── .github/
+│   ├── ISSUE_TEMPLATE/          # GitHub issue intake forms
+│   │   ├── bug_report.yml       # Bug report template
+│   │   ├── feature_request.yml  # Feature proposal template
+│   │   └── config.yml           # Issue template configuration
+│   ├── workflows/               # CI/CD Automation pipelines
+│   │   ├── streak.yml           # Daily scheduled commit generator
+│   │   └── ci.yml               # Automated CI linting and test validation
+│   ├── labels.yml               # Repository labels specification
+│   ├── PULL_REQUEST_TEMPLATE.md # Standard PR review checklist
+│   └── dependabot.yml           # Automated action dependency updates
+├── config/
+│   └── messages.json            # Categorized pool of conventional commit messages
+├── docs/
+│   ├── ARCHITECTURE.md          # System architecture and data flow design
+│   └── SETUP.md                 # Detailed setup & local troubleshooting guide
+├── logs/
+│   ├── streak.log               # Live activity audit log
+│   ├── activity.log             # Archived history
+│   └── .gitkeep                 # Git directory anchor
+├── scripts/
+│   └── generate_commits.sh      # Modular generator engine with CLI options
+├── .editorconfig                # Universal IDE formatting standards
+├── .gitignore                   # Version control ignore rules
+├── CODE_OF_CONDUCT.md           # Community standards (Contributor Covenant 2.1)
+├── CONTRIBUTING.md              # Open source contribution guidelines
+├── LICENSE                      # MIT Open Source License
+├── README.md                    # Main project overview & documentation
+└── SECURITY.md                  # Security vulnerability disclosure policy
+```
 
 ---
 
 ## ✨ Features
 
-- ⏰ **Scheduled Autonomous Triggers**: Runs automatically every day at `10:00 UTC` (or whatever schedule you choose) via GitHub Actions cron.
-- 🎲 **Stochastic Commit Volume**: Randomizes commit count between **2 and 6 commits daily** to emulate human workflow patterns instead of static rigid counts.
-- ✍️ **Conventional Commits Standard**: Employs industry-standard semantic messages (`feat: ...`, `fix: ...`, `refactor: ...`, `perf: ...`, `docs: ...`).
-- 🔘 **Manual Workflow Dispatch**: Trigger instant streak updates on-demand anytime with an optional manual commit count override via GitHub UI.
-- 📊 **Rich Run Summaries**: Generates detailed Markdown tables in GitHub Actions step summaries showing commit counts, messages, and timestamps.
+- ⏰ **Scheduled Autonomous Triggers**: Runs automatically every day at `10:00 UTC` via GitHub Actions cron.
+- 🎲 **Stochastic Commit Volume**: Randomizes commit count between **2 and 6 commits daily** to emulate human development flow.
+- ✍️ **Conventional Commits Standard**: Employs semantic messages across 10 categories (`feat`, `fix`, `docs`, `refactor`, `perf`, `style`, `test`, `chore`, `ci`, `build`).
+- 🔘 **Manual Workflow Dispatch**: Trigger instant streak updates on-demand anytime with an optional manual commit count override.
+- 📊 **Rich Run Summaries**: Automatically posts formatted Markdown tables to `$GITHUB_STEP_SUMMARY` in GitHub Actions.
 - 🔄 **Safe Concurrency & Auto-Rebase**: Built-in `git pull --rebase` prevents push conflicts and handles branch sync automatically.
-- 🔐 **Privacy & Identity Ready**: Supports repository secrets/variables (`GIT_USER_NAME`, `GIT_USER_EMAIL`) or inline configuration.
+- 🧪 **CI Test Suite**: Automated linting (`shellcheck`) and JSON config validation on every pull request.
+- 💻 **Local Dry-Run Support**: Test the generator locally anytime without making actual commits (`bash scripts/generate_commits.sh --dry-run`).
 
 ---
 
@@ -59,11 +104,11 @@ GitHub tracks your daily developer activity through the famous **"Green Contribu
 flowchart TD
     A["🕒 GitHub Actions Cron Trigger\n(Daily at 10:00 UTC)"] -->|Starts Runner| B["📥 Checkout Repository\n(actions/checkout@v4)"]
     A2["🔘 Manual Trigger\n(workflow_dispatch)"] -->|Optional override count| B
-    B --> C["👤 Configure Git Author\n(Name & Email)"]
-    C --> D["🎲 Generate Random Commit Count\n(e.g., 2 to 6 commits)"]
-    D --> E["🔁 Commit Loop"]
-    E --> F["✍️ Pick Random Conventional Message\n(feat, fix, docs, refactor, ...)"]
-    F --> G["📝 Append Timestamp to streak.log"]
+    B --> C["👤 Configure Git Author\n(Variables / Secrets)"]
+    C --> D["🎲 Execute scripts/generate_commits.sh\n(Reads config/messages.json)"]
+    D --> E["🔁 Commit Loop (2 to 6 times)"]
+    E --> F["✍️ Pick Random Conventional Message"]
+    F --> G["📝 Append UTC Timestamp to logs/streak.log"]
     G --> H["💾 Create Git Commit"]
     H -->|Repeat N times| E
     H -->|Completed| I["🔄 Git Pull --rebase & Push to main"]
@@ -99,38 +144,55 @@ Repository Settings
 ```
 
 ### 3. Configure Author Identity *(Optional but Recommended)*
-To ensure commits are attributed to your GitHub account and counted toward your profile graph:
-- Go to **Settings** > **Secrets and variables** > **Actions** > **Variables** (or Secrets).
+To ensure commits are credited to your GitHub account and counted on your profile graph:
+- Go to **Settings** > **Secrets and variables** > **Actions** > **Variables**.
 - Add:
   - `GIT_USER_NAME`: Your GitHub Full Name (e.g. `Mahmoud Al-Esawi`)
   - `GIT_USER_EMAIL`: Your GitHub Account Email (e.g. `your-email@example.com`)
-
-*(Or update `.github/workflows/streak.yml` directly with your email and name).*
 
 ### 4. Test the Automation
 1. Navigate to the **Actions** tab on your GitHub repository.
 2. Under **All workflows**, select **⚡ Auto Streak Updater**.
 3. Click **Run workflow** > Select `main` branch > Click **Run workflow**.
-4. Check your GitHub profile contribution graph—your green squares will update immediately!
+4. Check your GitHub profile contribution graph—your green activity squares will update immediately!
 
 ---
 
-## 🛠️ Configuration & Customization
+## 💻 Local CLI Usage
 
-You can easily adjust behavior directly in [`.github/workflows/streak.yml`](.github/workflows/streak.yml):
+You can run and test the commit generator script directly on your terminal:
 
-| Configuration | Description | Default Setting | Location in Workflow |
-| :--- | :--- | :--- | :--- |
-| **Cron Schedule** | When the workflow triggers every day | `0 10 * * *` (10:00 AM UTC) | `on.schedule.cron` |
-| **Commit Count Range** | Daily randomized number of commits | `2 + RANDOM % 5` (2–6 commits) | `COMMITS_TODAY` |
-| **Commit Messages** | Pool of semantic conventional commit messages | 25+ realistic messages | `MESSAGES=( ... )` |
-| **Target Log File** | File updated with activity timestamps | `streak.log` | `echo ... >> streak.log` |
+```bash
+# Show CLI options
+bash scripts/generate_commits.sh --help
+
+# Run a dry-run (simulation without commits)
+bash scripts/generate_commits.sh --dry-run --count 3
+
+# Generate exact commit count with custom author
+bash scripts/generate_commits.sh --count 4 \
+  --author-name "Developer Name" \
+  --author-email "dev@example.com"
+```
+
+---
+
+## 📚 Documentation
+
+| Document | Purpose |
+| :--- | :--- |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | In-depth breakdown of system design, error recovery, and data flows |
+| [SETUP.md](docs/SETUP.md) | Detailed installation, testing, and troubleshooting guide |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Guidelines for contributing code, messages, and workflows |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 community standard |
+| [SECURITY.md](SECURITY.md) | Security vulnerability disclosure procedure |
+| [LICENSE](LICENSE) | MIT Open Source License terms |
 
 ---
 
 ## 🏷️ Repository Metadata & Topics
 
-Use these recommended metadata attributes in your GitHub repository settings (**About** section on the top-right of your repo page):
+Use these recommended metadata attributes in your GitHub repository settings (**About** section):
 
 ### 📌 Description
 ```text
@@ -138,12 +200,8 @@ Use these recommended metadata attributes in your GitHub repository settings (**
 ```
 
 ### 🏷️ Topics / Tags
-Add these topics to make your repository easily discoverable:
-
 ```text
-github-streak  •  contribution-graph  •  green-graph  •  github-actions
-automation     •  cron-job            •  streak-keeper •  git-streak
-profile-enhancement  •  conventional-commits
+github-streak, contribution-graph, green-graph, github-actions, automation, cron-job, streak-keeper, git-streak, profile-enhancement, conventional-commits
 ```
 
 ---
@@ -160,12 +218,13 @@ This repository includes a standardized labeling system configured in [`.github/
 | `📖 documentation`| `0075CA` | Improvements, additions, or updates to documentation and README |
 | `✨ enhancement` | `A2EEEF` | New features, options, or enhancements |
 | `🧹 maintenance` | `FBCA04` | Routine repository cleanups, log rotations, and dependency updates |
+| `🐛 bug` | `D73A4A` | Bug reports and script fixes |
 
 ---
 
 ## 📜 Activity Log Inspection
 
-Each workflow run appends structured timestamped entries to [`streak.log`](streak.log):
+Each workflow run appends structured timestamped entries to [`logs/streak.log`](logs/streak.log):
 
 ```log
 [2026-08-31T10:00:15Z] Streak update #1: feat(api): add error handling middleware
@@ -192,6 +251,6 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 
 Crafted with 💚 by **[Mahmoud Al-Esawi](https://github.com/MahmoudEsawi)**
 
-⭐ *If you find this repository helpful, consider starring the repo!*
+⭐ *If you find this project helpful, consider starring the repository!*
 
 </div>

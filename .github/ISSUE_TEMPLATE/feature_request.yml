@@ -1,0 +1,33 @@
+name: ✨ Feature Request
+description: Suggest an idea, enhancement, or new commit category for this project
+title: "[FEAT]: "
+labels: ["✨ enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to improve **my-green-graph**? We would love to hear it!
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature / Proposal Summary
+      description: Describe the feature or idea in detail.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_solved
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem or limitation?
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested_implementation
+    attributes:
+      label: Suggested Solution / Implementation
+      description: Explain how you envision this being built or configured.
+    validations:
+      required: false
