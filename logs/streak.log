@@ -907,3 +907,4 @@ Restoring streak 3 for 0 days ago
 [2026-09-20T14:04:16Z] Streak update #2: refactor(hooks): decouple reactive event listeners
 [2026-09-20T14:04:16Z] Streak update #3: build: update build configuration
 [2026-09-20T14:04:16Z] Streak update #4: perf: improve rendering performance for large lists
+[2026-09-21T16:22:22Z] Streak update #1: docs: clarify API endpoint parameter descriptions
