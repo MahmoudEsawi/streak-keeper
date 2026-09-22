@@ -912,3 +912,4 @@ Restoring streak 3 for 0 days ago
 [2026-09-21T16:22:22Z] Streak update #3: test(e2e): add end-to-end smoke test suite
 [2026-09-22T14:37:41Z] Streak update #1: build: update build configuration
 [2026-09-22T14:37:41Z] Streak update #2: refactor(core): optimize state management logic
+[2026-09-22T14:37:41Z] Streak update #3: ci: update workflow triggers
