@@ -935,3 +935,4 @@ Restoring streak 3 for 0 days ago
 [2026-09-26T14:18:20Z] Streak update #2: perf(bundle): enable tree shaking for vendor modules
 [2026-09-26T14:18:20Z] Streak update #3: test(e2e): add end-to-end smoke test suite
 [2026-09-26T14:18:20Z] Streak update #4: docs: clarify API endpoint parameter descriptions
+[2026-09-26T14:18:20Z] Streak update #5: fix(cache): invalidate stale memory cache on logout
