@@ -968,3 +968,4 @@ Restoring streak 3 for 0 days ago
 [2026-10-02T16:11:34Z] Streak update #3: test(api): add integration test suite
 [2026-10-02T16:11:34Z] Streak update #4: docs: clarify API endpoint parameter descriptions
 [2026-10-02T16:11:34Z] Streak update #5: fix(cache): invalidate stale memory cache on logout
+[2026-10-02T16:11:34Z] Streak update #6: feat(auth): add rate limiting for sensitive routes
