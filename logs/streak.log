@@ -1032,3 +1032,4 @@ Restoring streak 3 for 0 days ago
 [2026-10-20T14:53:36Z] Streak update #1: perf: improve rendering performance for large lists
 [2026-10-20T14:53:36Z] Streak update #2: chore(ci): streamline runner caching policy
 [2026-10-20T14:53:36Z] Streak update #3: feat(db): optimize query indexes
+[2026-10-20T14:53:36Z] Streak update #4: feat(auth): add rate limiting for sensitive routes
