@@ -1043,3 +1043,4 @@ Restoring streak 3 for 0 days ago
 [2026-10-22T15:00:07Z] Streak update #3: fix(utils): resolve timezone parsing issue
 [2026-10-22T15:00:07Z] Streak update #4: style: clean up css utility classes
 [2026-10-22T15:00:07Z] Streak update #5: feat(api): add error handling middleware
+[2026-10-22T15:00:07Z] Streak update #6: ci: update workflow triggers
