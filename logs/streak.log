@@ -1087,3 +1087,4 @@ Restoring streak 3 for 0 days ago
 [2026-11-02T20:10:40Z] Streak update #1: style: clean up css utility classes
 [2026-11-02T20:10:40Z] Streak update #2: docs: clarify API endpoint parameter descriptions
 [2026-11-02T20:10:40Z] Streak update #3: chore: update package dependencies
+[2026-11-02T20:10:40Z] Streak update #4: fix(cache): invalidate stale memory cache on logout
