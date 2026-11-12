@@ -1125,3 +1125,4 @@ Restoring streak 3 for 0 days ago
 [2026-11-11T17:49:21Z] Streak update #4: perf: improve rendering performance for large lists
 [2026-11-11T17:49:21Z] Streak update #5: fix(auth): handle expired token error gracefully
 [2026-11-11T17:49:21Z] Streak update #6: feat(auth): add rate limiting for sensitive routes
+[2026-11-12T18:05:19Z] Streak update #1: docs: update setup instructions in README.md
