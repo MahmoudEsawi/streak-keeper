@@ -1134,3 +1134,4 @@ Restoring streak 3 for 0 days ago
 [2026-11-13T17:36:47Z] Streak update #3: feat(i18n): support localized date formats
 [2026-11-13T17:36:47Z] Streak update #4: docs: update setup instructions in README.md
 [2026-11-13T17:36:47Z] Streak update #5: feat(db): optimize query indexes
+[2026-11-13T17:36:47Z] Streak update #6: docs: clarify API endpoint parameter descriptions
