@@ -1152,3 +1152,4 @@ Restoring streak 3 for 0 days ago
 [2026-11-17T19:02:39Z] Streak update #2: test(e2e): add end-to-end smoke test suite
 [2026-11-17T19:02:39Z] Streak update #3: fix(utils): resolve timezone parsing issue
 [2026-11-17T19:02:39Z] Streak update #4: feat(api): add error handling middleware
+[2026-11-17T19:02:39Z] Streak update #5: fix(cache): invalidate stale memory cache on logout
