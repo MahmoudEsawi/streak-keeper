@@ -1184,3 +1184,4 @@ Restoring streak 3 for 0 days ago
 [2026-11-24T20:34:47Z] Streak update #2: build: update build configuration
 [2026-11-25T19:51:39Z] Streak update #1: feat(db): optimize query indexes
 [2026-11-25T19:51:39Z] Streak update #2: feat(i18n): support localized date formats
+[2026-11-25T19:51:39Z] Streak update #3: ci: update workflow triggers
